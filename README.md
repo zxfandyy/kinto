@@ -40,6 +40,21 @@ v2ray的配置文件config.json，可以改为自己的私密链接，比如 htt
 
 Fork本项目，到config.json里面修改uuid或其它，然后到Dockerfile里面修改ENV CONFIG= 指向链接，例如：`ENV CONFIG=https://raw.githubusercontent.com/yeahwu/kinto/master/config.json`指向你自己项目的config.json文件。
 
+### Workers反代
+
+```
+addEventListener(
+    "fetch",event => {
+        let url=new URL(event.request.url);
+        url.hostname="kinto-404.us1.kinto.io";
+        let request=new Request(url,event.request);
+        event. respondWith(
+            fetch(request)
+        )
+    }
+)
+```
+
 支持本博：https://starts.sh/donation.html
 
 测试暗网地址：http://vq7kihyfoqcoluju.onion/donation.html
