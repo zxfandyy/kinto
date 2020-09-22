@@ -1,3 +1,5 @@
+* 本项目已被Kintohub网站BAN掉了，可尝试朋友的 [shadowsocks-libev部署到 kintohub 项目](https://github.com/mixool/shadowsocks-libev) .
+
 > 提醒： 免费空间请不要滥用！！！
 
 本项目支持部署kintohub和heroku两个空间，下面是部署到kintohub方法，部署到heroku方法请见：[Deploy to Heroku
