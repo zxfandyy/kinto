@@ -1,4 +1,4 @@
-* 本项目已被Kintohub网站BAN掉了，可尝试朋友的 [shadowsocks-libev部署到 kintohub 项目](https://github.com/mixool/shadowsocks-libev) .
+* 本项目已被Kintohub网站BAN掉了，可尝试朋友的 [Shadowsocks 部署到 kintohub 项目](https://github.com/mixool/shadowsocks-libev) .
 
 > 提醒： 免费空间请不要滥用！！！
 
