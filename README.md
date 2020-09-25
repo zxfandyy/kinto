@@ -1,46 +1,74 @@
-* 本项目已被Kintohub网站BAN掉了，可尝试朋友的 [Shadowsocks 部署到 kintohub 项目](https://github.com/mixool/shadowsocks-libev) .
+[Telegram讨论群](https://t.me/starts_sh_group)
 
-> 提醒： 免费空间请不要滥用！！！
+Heroku上部署v2ray和tor，部署成功后，可用v2ray客户端直接访问tor网络，比如暗网.onion，v2ray.json文件中设置了路由分流了tor网络，非tor流量不受影响。
 
-本项目支持部署kintohub和heroku两个空间，下面是部署到kintohub方法，部署到heroku方法请见：[Deploy to Heroku
-](https://github.com/yeahwu/kinto/blob/master/v2-heroku.md)
+#### 部署服务端
 
-利用kintohub免费空间部署v2ray和tor，部署成功后，可用v2ray客户端直接访问tor网络，比如暗网.onion，v2ray.json文件中设置了路由分流了tor网络，非tor流量不受影响。
+点击上面紫色`Deploy to Heroku`，会跳转到heroku app创建页面，填上app的名字，然后换上从 https://www.uuidgenerator.net/ 拷贝过来的UUID，点击下面deploy创建APP，完成后会生成一个链接，点击链接显示“Bad Request”就说明部署成功了！
 
-### 部署服务端
-1. 点开 https://app.kintohub.com/ 新建一个APP，点击 Create Service ,然后创建 Web App 如图：
+需要记下的是appname,和你填入的UUID，下面就可以设置客户端翻墙了。
 
-![创建 web app](/img/kinto2.PNG)
-
-2. Repository 填上git链接和默认分支master
-
-![repository](/img/kinto1.PNG)
-
-3. Build Settings 文件名填写Dockerfile，端口填上8888，填写如下：
-
-![build](/img/kinto.PNG)
-
-最后点击右上角 Deploy，部署完成，会生成一个链接，点击链接，如果显示Bad Request，即为成功。
-
-### 客户端配置
-
-客户端配置看图吧，不多讲：
+#### 客户端设置
 
 ![v2ray](/img/kinto3.jpg)
 
-默认UUID：c95ef1d4-f3ac-4586-96e9-234a37dda068
+上图是443端口设置方法，当然你也可以设置80端口，不要打开tls就可以了，如下：
 
-### 修改UUID
+```
+地址(address) : appname.herokuapp.com	//appname替换成你的app名字
 
-方法一：
+端口(port) : 80
 
-v2ray的配置文件config.json，可以改为自己的私密链接，比如 https://gist.github.com/ 里自定义v2ray配置，当然你也可参考本项目的config.json配置，然后生成链接。最后部署的时候写入到Environment variables里，如图：
+用户ID(uuid) : 这里填写刚申请的UUID
 
-![gist](/img/kinto4.jpg)
+加密方式(security) : aes-128-gcm
 
-方法二：
+传输协议(network) : ws
+```
 
-Fork本项目，到config.json里面修改uuid或其它，然后到Dockerfile里面修改ENV CONFIG= 指向链接，例如：`ENV CONFIG=https://raw.githubusercontent.com/yeahwu/kinto/master/config.json`指向你自己项目的config.json文件。
+本地客户端config.json文件配置：
+```
+{
+  "inbounds": [
+    {
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "appname.herokuapp.com",  //域名
+            "port": 443,
+            "users": [
+              {
+                "id": "c95ef1d4-f3ac-4586-96e9-234a37dda068"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {}
+      }
+    }
+  ]
+}
+```
 
 ### Workers反代
 
