@@ -70,7 +70,7 @@ Heroku上部署v2ray和tor，部署成功后，可用v2ray客户端直接访问t
 }
 ```
 
-### Workers反代
+#### Workers反代
 
 ```
 addEventListener(
@@ -84,7 +84,5 @@ addEventListener(
     }
 )
 ```
-
-支持本博：https://starts.sh/donation.html
 
 测试暗网地址：http://vq7kihyfoqcoluju.onion/donation.html
