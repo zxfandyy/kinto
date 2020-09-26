@@ -1,6 +1,6 @@
 {
     "name": "v2ray-heroku",
-    "description": "deploy v2ray tor on heroku",
+    "description": "deploy v2ray to heroku",
     "keywords": ["v2ray"],
     "env": {
         "UUID": {
