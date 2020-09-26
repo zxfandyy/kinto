@@ -1,11 +1,15 @@
 {
-    "name": "v2-heroku",
+    "name": "v2ray-heroku",
     "description": "deploy v2ray tor on heroku",
     "keywords": ["v2ray"],
     "env": {
         "UUID": {
             "description": "v2ray UUID",
             "value": "c95ef1d4-f3ac-4586-96e9-234a37dda068"        
+        },
+        "PROTOCOL": {
+            "description": "v2ray protocol",
+            "value": "vmess"
         }
     },
     "website": "https://starts.sh",

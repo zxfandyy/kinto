@@ -6,8 +6,7 @@ RUN git clone --progress https://github.com/v2fly/v2ray-core.git . && \
 
 FROM alpine
 COPY --from=builder /tmp/v2ray.tgz /tmp
-RUN apk update && apk add --no-cache tor ca-certificates && \
-    tar xvfz /tmp/v2ray.tgz -C /usr/bin && \
+RUN tar xvfz /tmp/v2ray.tgz -C /usr/bin && \
     rm -rf /tmp/v2ray.tgz
 
 ADD v2ray.sh /v2ray.sh
