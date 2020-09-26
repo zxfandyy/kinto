@@ -12,6 +12,8 @@ Heroku上部署v2ray，可更改传输协议vmess和vless，默认是vmess传输
 
 #### 客户端设置
 
+注意和服务端协议保持一致，选择vmess或者vless，其它照图填写：
+
 ![v2ray](/img/kinto3.jpg)
 
 上图是443端口设置方法，当然你也可以设置80端口，不要打开tls就可以了，如下：
@@ -48,7 +50,7 @@ Heroku上部署v2ray，可更改传输协议vmess和vless，默认是vmess传输
   ],
   "outbounds": [
     {
-      "protocol": "vmess",
+      "protocol": "vmess",  //此处选择vmess或者vless
       "settings": {
         "vnext": [
           {
