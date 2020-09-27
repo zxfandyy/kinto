@@ -25,7 +25,7 @@ Heroku上部署v2ray，可更改传输协议vmess和vless，默认是vmess传输
 
 端口(port) : 80
 
-用户ID(uuid) : 这里填写刚申请的UUID
+用户ID(uuid) : c95ef1d4-f3ac-4586-96e9-234a37dda068
 
 加密方式(security) : aes-128-gcm
 
