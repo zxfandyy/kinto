@@ -28,5 +28,5 @@ cat << EOF > /etc/config.json
 }		
 EOF
 
-# start tor and v2ray
+# run v2ray
 v2ray -config /etc/config.json
