@@ -29,4 +29,4 @@ cat << EOF > /etc/config.json
 EOF
 
 # run v2ray
-v2ray -config /etc/config.json
+/usr/bin/v2ray/v2ray -config /etc/config.json
