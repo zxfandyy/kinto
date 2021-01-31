@@ -6,8 +6,12 @@ RUN git clone --progress https://github.com/v2fly/v2ray-core.git . && \
 
 FROM alpine
 COPY --from=builder /tmp/v2ray.tgz /tmp
-RUN tar xvfz /tmp/v2ray.tgz -C /usr/bin && \
+RUN mkdir -p /usr/bin/v2ray && \
+    tar xvfz /tmp/v2ray.tgz -C /usr/bin/v2ray && \
     rm -rf /tmp/v2ray.tgz
+    
+WORKDIR /usr/bin/v2ray
+RUN ls | grep -v v2ray | xargs rm
 
 ADD v2ray.sh /v2ray.sh
 RUN chmod +x /v2ray.sh
