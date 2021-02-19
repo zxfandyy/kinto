@@ -1,5 +1,5 @@
 FROM golang:alpine AS builder
-RUN apk update && apk add --no-cache git bash curl
+RUN apk update && apk add --no-cache git
 WORKDIR /go/src/v2ray.com/core
 RUN git clone --progress https://github.com/v2fly/v2ray-core.git . && \
     go mod download && \
