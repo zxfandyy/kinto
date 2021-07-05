@@ -1,7 +1,7 @@
 * Kintohub已经封了这个项目，所以只能部署到Heroku了，下面是部署到Heroku的方法。
 * Heroku也封了这个项目，可以fork本项目，修改项目名和部署链接，即可正常部署。
 
-链接地址格式如下，等号后面改成你fork过去的项目链接：
+部署链接格式如下，等号后面改成你fork过去的项目链接：
 `https://dashboard.heroku.com/new?template=https://github.com/yeahwu/kinto`
 
 > 提醒： 滥用可能导致账户被BAN！！！  
