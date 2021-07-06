@@ -12,7 +12,7 @@ Heroku上部署v2ray，可更改传输协议vmess和vless，默认是vmess传输
 
 #### 部署服务端
 
-点击上面紫色`Deploy to Heroku`，会跳转到heroku app创建页面，填上app的名字，选择你喜欢的传输协议vmess或者vless，最后换上从 https://starts.sh/getuuid.html 拷贝过来的UUID，点击下面deploy创建APP，完成后会生成一个链接，点击链接显示“Bad Request”就说明部署成功了！
+点击上面紫色`Deploy to Heroku`，会跳转到heroku app创建页面，填上app的名字，选择你喜欢的传输协议vmess或者vless，最后换上从 https://111111.online/getuuid.html 拷贝过来的UUID，点击下面deploy创建APP，完成后会生成一个链接，点击链接显示“Bad Request”就说明部署成功了！
 
 需要记下的是appname,和你填入的UUID，下面就可以设置客户端翻墙了。
 
