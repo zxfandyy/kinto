@@ -80,6 +80,23 @@ Heroku上部署v2ray，可更改传输协议vmess和vless，默认是vmess传输
 }
 ```
 
+本地Clash客户端config.yaml文件配置：
+
+```
+  - name: "HEROKU"
+    type: vmess
+    server: appname.herokuapp.com
+    port: 443
+    uuid: c95ef1d4-f3ac-4586-96e9-234a37dda068
+    alterId: 0
+    cipher: aes-128-gcm
+    udp: true
+    tls: true
+    #skip-cert-verify: true
+    servername: appname.herokuapp.com
+    network: ws
+```
+
 #### Workers反代
 
 ```
